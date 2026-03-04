@@ -43,83 +43,62 @@ function CreateUser() {
   }
   return (
      <>
-<div className="min-h-screen bg-slate-500 flex justify-center items-center px-4 sm:px-6">
-  <div
-    className="
-      w-full 
-      max-w-md sm:max-w-lg 
-      bg-white 
-      rounded-2xl 
-      shadow-xl 
-      p-4 sm:p-6 md:p-8
-    "
-  >
-    <h2 className="text-xl sm:text-2xl font-semibold text-slate-700 mb-4 sm:mb-6 text-center">
+ <div className="min-h-screen bg-slate-500 flex justify-center items-center p-6">
+  <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-6">
+
+    <h2 className="text-2xl font-semibold text-slate-700 mb-6 text-center">
       Add User
     </h2>
 
     <form onSubmit={submit} className="space-y-4">
 
       <div>
-        <label className="block text-sm sm:text-base text-slate-600 mb-1">
+        <label className="block text-slate-600 mb-1">
           Name
         </label>
         <input
           type="text"
           value={name}
           placeholder="Enter name"
-          className="
-            w-full px-3 sm:px-4 py-2 
-            border border-slate-300 rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-slate-400
-          "
+          className="w-full px-4 py-2 border border-slate-300 rounded-lg 
+                     focus:outline-none focus:ring-2 focus:ring-slate-400"
           onChange={(e) => setname(e.target.value)}
         />
       </div>
 
       <div>
-        <label className="block text-sm sm:text-base text-slate-600 mb-1">
+        <label className="block text-slate-600 mb-1">
           Email
         </label>
         <input
-          type="email"
+          type="text"
           value={email}
           placeholder="Enter email"
-          className="
-            w-full px-3 sm:px-4 py-2 
-            border border-slate-300 rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-slate-400
-          "
+          className="w-full px-4 py-2 border border-slate-300 rounded-lg 
+                     focus:outline-none focus:ring-2 focus:ring-slate-400"
           onChange={(e) => setemail(e.target.value)}
         />
       </div>
 
       <div>
-        <label className="block text-sm sm:text-base text-slate-600 mb-1">
+        <label className="block text-slate-600 mb-1">
           Age
         </label>
         <input
-          type="number"
+          type="text"
           value={age}
           placeholder="Enter age"
-          className="
-            w-full px-3 sm:px-4 py-2 
-            border border-slate-300 rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-slate-400
-          "
+          className="w-full px-4 py-2 border border-slate-300 rounded-lg 
+                     focus:outline-none focus:ring-2 focus:ring-slate-400"
           onChange={(e) => setage(e.target.value)}
         />
       </div>
 
-      <div className="flex justify-end pt-4">
+      <div className="flex justify-end pt-4 gap-3">
         <button
           type="submit"
-          className="
-            w-full sm:w-auto
-            bg-slate-600 hover:bg-slate-700 
-            text-white font-medium 
-            px-6 py-2 rounded-lg transition
-          "
+          className="bg-slate-600 hover:bg-slate-700 text-white font-medium 
+                     px-6 py-2 rounded-lg transition"
         >
           Submit
         </button>
@@ -128,7 +107,6 @@ function CreateUser() {
     </form>
   </div>
 </div>
-
 
     </>
   )
