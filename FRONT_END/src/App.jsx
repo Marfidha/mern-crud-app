@@ -15,7 +15,7 @@ function App() {
   return (
     <>
     
-      <BrowserRouter>
+      <BrowserRouter basename="/mern-crud-app">
       <Routes>
         <Route path='/' element={<Login/>}></Route>
         <Route path='/loginn' element={<Users/>}></Route>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import bg from "../assets/image.png"
 import bgs from "../assets/imggg.png"
 import axios from "axios"
+import API from "../api";
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2' 
 
@@ -14,7 +15,7 @@ function Login() {
 
       const handlesubmit=async()=>{
   
-        const response=await axios.post("http://localhost:3001/admin",{email,password})
+        const response=await API.post("/admin",{email,password})
         console.log(response);
         
         if(response.data.message=="done"){

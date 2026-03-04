@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from "axios"
+import API from "../api";
 import { useNavigate, Link, BrowserRouter, Route, Routes } from 'react-router-dom';
 import Swal  from 'sweetalert2';
 
@@ -23,7 +24,7 @@ function CreateUser() {
               }).then((result) => {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-    axios.post("http://localhost:3001/createserver", { name, email, age })
+    API.post("/createserver", { name, email, age })
     .then(result => {
       Swal.fire("Saved!", "", "success");
       console.log(result.data)

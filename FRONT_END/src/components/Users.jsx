@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React,{useState} from 'react'
 import { useEffect } from 'react';
+import API from "../api";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ function Users() {
    const [user ,Setuser]=useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:3001')
+        API.get('/')
         .then(result => Setuser(result.data))
         .catch(err => console.log(err));
         
@@ -31,7 +32,7 @@ function Users() {
 }).then((result) => {
   if (result.isConfirmed) {
 
-axios.delete('http://localhost:3001/deleteuser/'+id)
+API.delete('/deleteuser/' + id)
         .then(res =>{ console.log(res)
             window.location.reload()
         })

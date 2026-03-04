@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams ,useNavigate} from 'react-router-dom'
 import { useState ,useEffect } from 'react'
 import axios from 'axios'
+import API from "../api";
 import Swal from "sweetalert2"
 
 function UpdateUser() {
@@ -16,7 +17,7 @@ function UpdateUser() {
   
 
    useEffect(()=>{
-        axios.get('http://localhost:3001/getuser/'+id)
+        API.get('/getuser/' + id)
         .then(result => {
           console.log("Fetched user data:", result.data);
           setname(result.data.name);
@@ -40,7 +41,7 @@ function UpdateUser() {
            }).then((result) => {
            /* Read more about isConfirmed, isDenied below */
            if (result.isConfirmed) {
-              axios.put("http://localhost:3001/Updateuser/"+id, { name, email, age })
+              API.put("/UpdateUser/" + id, { name, email, age })
                .then(result => {
                 Swal.fire("Saved!", "", "success");
                  console.log(result.data)
