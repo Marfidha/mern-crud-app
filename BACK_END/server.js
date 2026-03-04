@@ -6,15 +6,14 @@ import cors from "cors"
 import usermodel from "./models/Users.js"
 // import UpdateUser from "../FRONT_END/src/components/UpdateUser.js"
 
-
-const port=process.env.PORT
+const port = process.env.PORT || 3001
 
 
 
 
 const app=express()
 app.use(cors({
-   origin: "https://marfidha.github.io"
+   origin: ["http://localhost:5173","https://marfidha.github.io"]
   // origin: ['http://localhost:5173/','http://localhost:5173','http://localhost:5174','http://localhost:5174/'],
   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
   // allowedHeaders: ['Content-Type', 'Authorization'],
@@ -82,7 +81,7 @@ app.put('/UpdateUser/:id',(req ,res)=>{
 app.delete('/deleteuser/:id' ,(req ,res) =>{
   const id= req.params.id;
   usermodel.findByIdAndDelete({_id: id})
-  .then(res => res.json(res))
+  .then(result => res.json(result))
   .catch(err => res.json(err))
 })
 
@@ -93,6 +92,5 @@ app.post("/admin",server)
 
 
 app.listen(port,()=>{
-
-     console.log("server is running");
+    console.log(`Server running on port ${port}`);
 })
