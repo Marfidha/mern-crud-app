@@ -13,17 +13,24 @@ const port = process.env.PORT || 3001
 
 const app=express()
 app.use(cors({
-   origin: ["http://localhost:5173","https://marfidha.github.io"]
+   origin: ["http://localhost:5173/",
+    "https://marfidha.github.io"],
   // origin: ['http://localhost:5173/','http://localhost:5173','http://localhost:5174','http://localhost:5174/'],
   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
   // allowedHeaders: ['Content-Type', 'Authorization'],
-  // credentials: true
+  credentials: true
 }));
 app.use(express.json());
 mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("connected succsesfullly"); 
-
+    app.listen(port,()=>{
+    console.log(`Server running on port ${port}`);
 })
+
+}).catch(err=>{
+    console.log("MongoDB connection error:", err);
+});
+
 
 
 
@@ -91,6 +98,6 @@ app.post("/admin",server)
 
 
 
-app.listen(port,()=>{
-    console.log(`Server running on port ${port}`);
-})
+// app.listen(port,()=>{
+//     console.log(`Server running on port ${port}`);
+// })
