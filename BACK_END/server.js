@@ -14,25 +14,12 @@ const port = process.env.PORT || 3001
 const app=express()
 
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://marfidha.github.io"
-];
-
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"],
-  credentials: true
+   origin: ["http://localhost:5173",
+    "https://marfidha.github.io"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
 }));
-
-app.options("*", cors());
 
 
 
